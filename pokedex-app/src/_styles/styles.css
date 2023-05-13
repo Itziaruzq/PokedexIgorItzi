@@ -1,0 +1,42 @@
+:root {
+    /* Pokemon types */
+    --rock: #B69E31;
+    --ghost: #70559B;
+    --steel: #B7B9D0;
+    --water: #6493EB;
+    --grass: #74CB48;
+    --psychic: #FB5584;
+    --ice: #9AD6DF;
+    --dark: #75574C;
+    --fairy: #E69EAC;
+    --normal: #AAA67F;
+    --fighting: #C12239;
+    --flying: #A891EC;
+    --poison: #A43E9E;
+    --ground: #DEC16B;
+    --bug: #A7B723;
+    --fire: #F57D31;
+    --electric: #F9CF30;
+    --dragon: #7037FF;
+    /* greyscale */
+    --dark-gray: #212121;
+    --medium-gray: #666666;
+    --light-gray: #E0E0E0;
+    --white: #FFFFFF;
+    --background: #F7F7F7;
+    /* Font */
+    --font-size-s: 0.625rem;
+    --font-size-m: 0.75rem;
+    --font-size-l: 0.875rem;
+    --font-size-xl: 1.5rem;
+    --line-height: 1rem;
+    --line-height-xl: 1.5rem;
+    /* spacing */
+    --xtiny: 0.25rem;
+    --tiny: 0.5rem;
+    --small: 0.75rem;
+    --mini: 1rem;
+    --base: 1.5rem;
+    --medium: 2rem;
+    --large: 3rem;
+}
