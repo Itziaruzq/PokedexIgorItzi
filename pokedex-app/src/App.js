@@ -6,51 +6,53 @@ function App() {
 
 const Card = () => {
   return (
-    <div className="card-container">
-      <div className="card-title">
-        <p className="pokemon-name">Bulbasaur</p>
-        <p className="pokemon-number">#001</p>
-      </div>
-      <img
-        className="pokemon-img"
-        src="_assets/pokemons/bulbasaur.png"
-        alt="bulbasaur"
-      />
-      <div className="card-info">
-        <div className="pokemon-type-container">
-          <p className="pokemon-type">Grass</p>
-          <p className="pokemon-type">Poisson</p>
+    <div className="card__container">
+      <section className="card__title">
+        <p className="pokemon__name">Bulbasaur</p>
+        <p className="pokemon__number">#001</p>
+      </section>
+      <section className="card__info">
+        <div className="img__container">
+          <img
+            className="pokemon__img"
+            src="_assets/pokemons/mew.png"
+            alt="bulbasaur"
+          />
+        </div>
+        <div className="pokemon__type__container">
+          <p className="pokemon__type">Grass</p>
+          <p className="pokemon__type">Poisson</p>
         </div>
         <p className="about">About</p>
-        <div className="pokemon-features">
-          <div className="pokemon-weight">
-            <div className="card-measure">
+        <div className="pokemon__features">
+          <div className="pokemon__weight">
+            <div className="card__measure">
               <img
-                className="feature-icon"
+                className="feature__icon"
                 src="_assets/icons/weight.png"
                 alt="weight"
               />
               <p>6.9 kg</p>
             </div>
-            <p className="feature-description-tag">Weight</p>
+            <p className="feature__description__tag">Weight</p>
           </div>
-          <div className="pokemon-height">
-            <div className="card-measure">
+          <div className="pokemon__height">
+            <div className="card__measure">
               <img
-                className="feature-icon"
+                className="feature__icon"
                 src="_assets/icons/ruler.png"
                 alt="ruler"
               />
               <p>0.7m</p>
             </div>
-            <p className="feature-description-tag">Height</p>
+            <p className="feature__description__tag">Height</p>
           </div>
         </div>
-        <p className="text-info">
+        <p className="text__info">
           There is a plant seed on its back right from the day this Pokémon is
           born
         </p>
-      </div>
+      </section>
     </div>
   );
 };
