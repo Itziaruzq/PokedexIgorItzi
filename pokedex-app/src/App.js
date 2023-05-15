@@ -1,7 +1,46 @@
 import "./App.css";
 
 function App() {
-  return <Card />;
+ 
+    return (
+      <main className="main_container">
+        <Header />
+        <Searchbar />
+
+        <Card /> 
+        <Footer/>
+      </main>
+    );
+}
+
+ const Header = () => {
+  return (
+    <header>
+      <div className="header_container">
+      <img
+            className="header__pokeball__img"
+            src="_assets/icons/pokeball.png"
+            alt="pokeball"
+          />
+          <p className="header_title"> My Pokédex</p>
+      </div>
+     
+    </header>
+  )
+}
+
+const Searchbar = () => {
+  return (
+    <div className="searchbar_container">
+         <img
+            className="searchbar_img"
+            src="_assets/icons/search.png"
+            alt="search"
+          />
+      <input className="searchbar_input" type="iconSource" ></input>
+     
+    </div>
+  )
 }
 
 const Card = () => {
@@ -56,5 +95,23 @@ const Card = () => {
     </div>
   );
 };
+
+ const Footer = () => {
+  return (
+    <footer>
+    <div className="footer_container">
+      <img
+            className="footer__github__img"
+            src="_assets/icons/github.png"
+            alt="github"
+          />
+            <img
+            className="footer__pokeapi__img"
+            src="_assets/icons/pokeapi.png"
+            alt="github"
+          />
+      </div>    </footer>
+  )
+}
 
 export default App;
