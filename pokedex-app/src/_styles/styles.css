@@ -75,18 +75,20 @@ line-height: 2rem;
   box-sizing: border-box;
   border: 1px solid var(--light-gray);
   border-radius: 0.5rem;
- width: fit-content;
 }
+
 
 .searchbar_input{
-    border:none;
-justify-content: space-around;
-}
-
-.searchbar_img{
+border:none;
+width:100%;
 
 }
-
+.searchbar_input:focus{
+  outline:none;
+}
+.searchbar_input_img{
+  padding-left: 1rem;
+}
 
 .card__container {
   display: flex;

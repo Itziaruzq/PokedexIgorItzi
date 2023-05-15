@@ -37,7 +37,7 @@ const Searchbar = () => {
             src="_assets/icons/search.png"
             alt="search"
           />
-      <input className="searchbar_input" type="iconSource" ></input>
+      <input className="searchbar_input" type="text" ></input>
      
     </div>
   )
