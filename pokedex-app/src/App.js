@@ -4,20 +4,20 @@ const pokemons = [
   {
     name: "Bulbasaur",
     id: "#001",
-    type: ["Grass"],
+    type: ["Grass", "Poison"],
     weight: "6.9 kgs",
     height: "0.7 m",
     info: "Esta es mi info",
     src: "_assets/pokemons/bulbasaur.png",
   },
   {
-    name: "Bulbasaur",
-    id: "#001",
-    type: ["Grass"],
-    weight: "6.9 kgs",
-    height: "0.7 m",
+    name: "Charmander",
+    id: "#004",
+    type: ["Fire"],
+    weight: "5 kgs",
+    height: "1.2 m",
     info: "Esta es mi info",
-    src: "_assets/pokemons/bulbasaur.png",
+    src: "_assets/pokemons/charmander.png",
   },
 ];
 
@@ -26,9 +26,11 @@ function App() {
     <main className="main_container">
       <Header />
       <Searchbar />
+      {pokemons.map((pokemon) => (
+        <Card pokemon={pokemon} />
+      ))}
 
-      <Card pokemons={pokemons} />
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }
@@ -63,8 +65,8 @@ const Searchbar = () => {
   );
 };
 
-const Card = ({ pokemons }) => {
-  return pokemons.map((pokemon) => (
+const Card = ({ pokemon }) => {
+  return (
     <div className="card__container">
       <section className="card__title">
         <p className="card__pokemon-name">{pokemon.name}</p>
@@ -109,7 +111,7 @@ const Card = ({ pokemons }) => {
         <p className="card__text__info">{pokemon.info}</p>
       </section>
     </div>
-  ));
+  );
 };
 
 const Footer = () => {
