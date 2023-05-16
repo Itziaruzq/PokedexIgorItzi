@@ -54,6 +54,7 @@ body {
   align-items: center;
   padding: 1.125rem 0;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  padding-left: 2rem;
 }
 
 .header__pokeball__img {
@@ -64,6 +65,7 @@ body {
   font-weight: bold;
   font-size: var(--font-size-xl);
   line-height: 2rem;
+  margin-left: 1rem;
 }
 
 .searchbar_container {
@@ -73,6 +75,8 @@ body {
   box-sizing: border-box;
 }
 .searchbar_container-center {
+  display: flex;
+  align-items: center;
   border: 1px solid var(--light-gray);
   border-radius: 0.5rem;
 }
@@ -80,12 +84,14 @@ body {
 .searchbar_input {
   /*Comprobar ancho*/
   border: none;
+  margin-left: 1.5rem;
 }
 .searchbar_input:focus {
   outline: none;
 }
 .searchbar_input_img {
-  padding-left: 1rem;
+  position: absolute;
+  padding-left: 0.4rem;
 }
 
 .cards__grid {
@@ -382,12 +388,12 @@ about--psychic {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  position: absolute;
   padding: 0.75rem 0rem;
   bottom: 0;
   width: 100%;
   box-sizing: border-box;
   border-top: 1px solid var(--light-gray);
+  margin-top: 3rem;
 }
 
 .footer__github__img {

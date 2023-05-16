@@ -56,6 +56,24 @@ const pokemons = [
     src: "_assets/pokemons/charmander.png",
   },
   {
+    name: "Squirtle",
+    id: "#001",
+    type: ["Water"],
+    weight: "8.9 kgs",
+    height: "0.8 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/squirtle.png",
+  },
+  {
+    name: "Charmander",
+    id: "#004",
+    type: ["Fire"],
+    weight: "5 kgs",
+    height: "1.2 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/charmander.png",
+  },
+  {
     name: "Bulbasaur",
     id: "#001",
     type: ["Grass", "Poison"],
@@ -63,6 +81,24 @@ const pokemons = [
     height: "0.7 m",
     info: "Esta es mi info",
     src: "_assets/pokemons/bulbasaur.png",
+  },
+  {
+    name: "Charmander",
+    id: "#004",
+    type: ["Fire"],
+    weight: "5 kgs",
+    height: "1.2 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/charmander.png",
+  },
+  {
+    name: "Squirtle",
+    id: "#001",
+    type: ["Water"],
+    weight: "8.9 kgs",
+    height: "0.8 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/squirtle.png",
   },
   {
     name: "Charmander",
@@ -85,7 +121,7 @@ function App() {
           <Card pokemon={pokemon} />
         ))}
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </main>
   );
 }
@@ -110,7 +146,7 @@ const Searchbar = () => {
     <div className="searchbar_container">
       <div className="searchbar_container-center">
         <img
-          className="searchbar_img"
+          className="searchbar_input_img"
           src="_assets/icons/search.png"
           alt="search"
         />
@@ -198,7 +234,7 @@ const Footer = () => {
           src="_assets/icons/pokeapi.png"
           alt="github"
         />
-      </div>{" "}
+      </div>
     </footer>
   );
 };
