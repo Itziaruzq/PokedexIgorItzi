@@ -94,9 +94,64 @@ body {
   justify-content: space-between;
   width: 18.75rem;
   height: 25rem;
-  background-color: var(--grass);
   border-radius: var(--small);
 }
+
+.card__container--rock {
+  background-color: var(--rock);
+}
+.card__container--ghost {
+  background-color: var(--ghost);
+}
+.card__container--steel {
+  background-color: var(--steel);
+}
+.card__container--water {
+  background-color: var(--water);
+}
+.card__container--grass {
+  background-color: var(--grass);
+}
+.card__container--psychic {
+  background-color: var(--psychic);
+}
+.card__container--ice {
+  background-color: var(--ice);
+}
+.card__container--dark {
+  background-color: var(--dark);
+}
+.card__container--fairy {
+  background-color: var(--fairy);
+}
+.card__container--normal {
+  background-color: var(--normal);
+}
+.card__container--fighting {
+  background-color: var(--fighting);
+}
+.card__container--flying {
+  background-color: var(--flying);
+}
+.card__container--poison {
+  background-color: var(--poison);
+}
+.card__container--ground {
+  background-color: var(--ground);
+}
+.card__container--bug {
+  background-color: var(--bug);
+}
+.card__container--fire {
+  background-color: var(--fire);
+}
+.card__container--electric {
+  background-color: var(--electric);
+}
+.card__container--dragon {
+  background-color: var(--dragon);
+}
+
 .card__title {
   display: flex;
   justify-content: space-between;
@@ -211,8 +266,62 @@ body {
   background-color: var(--dragon);
 }
 
-.about {
+.about--rock {
+  color: var(--rock);
+}
+.about--ghost {
+  color: var(--ghost);
+}
+about--steel {
+  color: var(--steel);
+}
+.about--water {
+  color: var(--water);
+}
+.about--grass {
   color: var(--grass);
+}
+about--psychic {
+  color: var(--psychic);
+}
+.about--ice {
+  color: var(--ice);
+}
+.about--dark {
+  color: var(--dark);
+}
+.about--fairy {
+  color: var(--fairy);
+}
+.about--normal {
+  color: var(--normal);
+}
+.about--fighting {
+  color: var(--fighting);
+}
+.about--flying {
+  color: var(--flying);
+}
+.about--poison {
+  color: var(--poison);
+}
+.about--ground {
+  color: var(--ground);
+}
+.about--bug {
+  color: var(--bug);
+}
+.about--fire {
+  color: var(--fire);
+}
+.about--electric {
+  color: var(--electric);
+}
+.about--dragon {
+  color: var(--dragon);
+}
+
+.about {
   font-size: var(--font-size-l);
 }
 .card__text__info {

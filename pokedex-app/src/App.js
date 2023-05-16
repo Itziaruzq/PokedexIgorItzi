@@ -66,8 +66,11 @@ const Searchbar = () => {
 };
 
 const Card = ({ pokemon }) => {
+  const mainType = pokemon.type[0];
   return (
-    <div className="card__container">
+    <div
+      className={`card__container card__container--${mainType.toLowerCase()}`}
+    >
       <section className="card__title">
         <p className="card__pokemon-name">{pokemon.name}</p>
         <p className="card__pokemon-number">{pokemon.id}</p>
@@ -85,12 +88,12 @@ const Card = ({ pokemon }) => {
             <Tag type={type} />
           ))}
         </div>
-        <p className="about">About</p>
+        <p className={`about about--${mainType.toLowerCase()}`}>About</p>
         <div className="card__pokemon__features__container">
           <div className="card__pokemon__feature-weight">
             <div className="card__feature__weight_container">
               <img
-                className="card__feature__icon-weight"
+                className="card__feature__icon--weight"
                 src="_assets/icons/weight.png"
                 alt="weight"
               />
@@ -98,7 +101,7 @@ const Card = ({ pokemon }) => {
             </div>
             <p className="card__feature__description__tag">Weight</p>
           </div>
-          <div className="card__pokemon__feature-height">
+          <div className="card__pokemon__feature--height">
             <div className="card__feature__height_container">
               <img
                 className="card_feature__icon"
@@ -119,7 +122,7 @@ const Card = ({ pokemon }) => {
 const Tag = ({ type }) => {
   return (
     <p
-      className={`card__pokemon__type card__pokemon__type-${type.toLowerCase()}`}
+      className={`card__pokemon__type card__pokemon__type--${type.toLowerCase()}`}
     >
       {type}
     </p>
