@@ -81,7 +81,9 @@ const Card = ({ pokemon }) => {
           />
         </div>
         <div className="card__pokemon__type__container">
-          <p className="card__pokemon__type">{pokemon.type}</p>
+          {pokemon.type.map((type) => (
+            <Tag type={type} />
+          ))}
         </div>
         <p className="about">About</p>
         <div className="card__pokemon__features__container">
@@ -111,6 +113,16 @@ const Card = ({ pokemon }) => {
         <p className="card__text__info">{pokemon.info}</p>
       </section>
     </div>
+  );
+};
+
+const Tag = ({ type }) => {
+  return (
+    <p
+      className={`card__pokemon__type card__pokemon__type-${type.toLowerCase()}`}
+    >
+      {type}
+    </p>
   );
 };
 
