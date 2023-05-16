@@ -156,58 +156,58 @@ body {
   font-size: var(--font-size-m);
 }
 
-.card__pokemon__type-rock {
+.card__pokemon__type--rock {
   background-color: var(--rock);
 }
-.card__pokemon__type-ghost {
+.card__pokemon__type--ghost {
   background-color: var(--ghost);
 }
-.card__pokemon__type-steel {
+.card__pokemon__type--steel {
   background-color: var(--steel);
 }
-.card__pokemon__type-water {
+.card__pokemon__type--water {
   background-color: var(--water);
 }
-.card__pokemon__type-grass {
+.card__pokemon__type--grass {
   background-color: var(--grass);
 }
-.card__pokemon__type-psychic {
+.card__pokemon__type--psychic {
   background-color: var(--psychic);
 }
-.card__pokemon__type-ice {
+.card__pokemon__type--ice {
   background-color: var(--ice);
 }
-.card__pokemon__type-dark {
+.card__pokemon__type--dark {
   background-color: var(--dark);
 }
-.card__pokemon__type-fairy {
+.card__pokemon__type--fairy {
   background-color: var(--fairy);
 }
-.card__pokemon__type-normal {
+.card__pokemon__type--normal {
   background-color: var(--normal);
 }
-.card__pokemon__type-fighting {
+.card__pokemon__type--fighting {
   background-color: var(--fighting);
 }
-.card__pokemon__type-flying {
+.card__pokemon__type--flying {
   background-color: var(--flying);
 }
-.card__pokemon__type-poison {
+.card__pokemon__type--poison {
   background-color: var(--poison);
 }
-.card__pokemon__type-ground {
+.card__pokemon__type--ground {
   background-color: var(--ground);
 }
-.card__pokemon__type-bug {
+.card__pokemon__type--bug {
   background-color: var(--bug);
 }
-.card__pokemon__type-fire {
+.card__pokemon__type--fire {
   background-color: var(--fire);
 }
-.card__pokemon__type-electric {
+.card__pokemon__type--electric {
   background-color: var(--electric);
 }
-.card__pokemon__type-dragon {
+.card__pokemon__type--dragon {
   background-color: var(--dragon);
 }
 
