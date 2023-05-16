@@ -19,6 +19,60 @@ const pokemons = [
     info: "Esta es mi info",
     src: "_assets/pokemons/charmander.png",
   },
+  {
+    name: "Squirtle",
+    id: "#001",
+    type: ["Water"],
+    weight: "8.9 kgs",
+    height: "0.8 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/squirtle.png",
+  },
+  {
+    name: "Charmander",
+    id: "#004",
+    type: ["Fire"],
+    weight: "5 kgs",
+    height: "1.2 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/charmander.png",
+  },
+  {
+    name: "Bulbasaur",
+    id: "#001",
+    type: ["Grass", "Poison"],
+    weight: "6.9 kgs",
+    height: "0.7 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/bulbasaur.png",
+  },
+  {
+    name: "Charmander",
+    id: "#004",
+    type: ["Fire"],
+    weight: "5 kgs",
+    height: "1.2 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/charmander.png",
+  },
+  {
+    name: "Bulbasaur",
+    id: "#001",
+    type: ["Grass", "Poison"],
+    weight: "6.9 kgs",
+    height: "0.7 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/bulbasaur.png",
+  },
+  {
+    name: "Charmander",
+    id: "#004",
+    type: ["Fire"],
+    weight: "5 kgs",
+    height: "1.2 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/charmander.png",
+  },
 ];
 
 function App() {
@@ -26,10 +80,11 @@ function App() {
     <main className="main_container">
       <Header />
       <Searchbar />
-      {pokemons.map((pokemon) => (
-        <Card pokemon={pokemon} />
-      ))}
-
+      <div className="cards__grid">
+        {pokemons.map((pokemon) => (
+          <Card pokemon={pokemon} />
+        ))}
+      </div>
       {/* <Footer /> */}
     </main>
   );
