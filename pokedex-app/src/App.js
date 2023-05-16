@@ -1,66 +1,85 @@
 import "./App.css";
 
-function App() {
- 
-    return (
-      <main className="main_container">
-        <Header />
-        <Searchbar />
+const pokemons = [
+  {
+    name: "Bulbasaur",
+    id: "#001",
+    type: ["Grass"],
+    weight: "6.9 kgs",
+    height: "0.7 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/bulbasaur.png",
+  },
+  {
+    name: "Bulbasaur",
+    id: "#001",
+    type: ["Grass"],
+    weight: "6.9 kgs",
+    height: "0.7 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/bulbasaur.png",
+  },
+];
 
-        <Card /> 
-        <Footer/>
-      </main>
-    );
+function App() {
+  return (
+    <main className="main_container">
+      <Header />
+      <Searchbar />
+
+      <Card pokemons={pokemons} />
+      <Footer />
+    </main>
+  );
 }
 
- const Header = () => {
+const Header = () => {
   return (
     <header>
       <div className="header_container">
-      <img
-            className="header__pokeball__img"
-            src="_assets/icons/pokeball.png"
-            alt="pokeball"
-          />
-          <p className="header_title"> My Pokédex</p>
+        <img
+          className="header__pokeball__img"
+          src="_assets/icons/pokeball.png"
+          alt="pokeball"
+        />
+        <p className="header_title"> My Pokédex</p>
       </div>
-     
     </header>
-  )
-}
+  );
+};
 
 const Searchbar = () => {
   return (
     <div className="searchbar_container">
-         <img
-            className="searchbar_img"
-            src="_assets/icons/search.png"
-            alt="search"
-          />
-      <input className="searchbar_input" type="text" ></input>
-     
+      <div className="searchbar_container-center">
+        <img
+          className="searchbar_img"
+          src="_assets/icons/search.png"
+          alt="search"
+        />
+        <input className="searchbar_input" type="text"></input>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-const Card = () => {
-  return (
+const Card = ({ pokemons }) => {
+  return pokemons.map((pokemon) => (
     <div className="card__container">
       <section className="card__title">
-        <p className="card__pokemon-name">Bulbasaur</p>
-        <p className="card__pokemon-number">#001</p>
+        <p className="card__pokemon-name">{pokemon.name}</p>
+        <p className="card__pokemon-number">{pokemon.id}</p>
       </section>
       <section className="card__info">
         <div className="card__img__container">
           <img
             className="card__pokemon__img"
-            src="_assets/pokemons/bulbasaur.png"
+            src={pokemon.src}
             alt="bulbasaur"
           />
         </div>
         <div className="card__pokemon__type__container">
-          <p className="card__pokemon__type">Grass</p>
-          <p className="card__pokemon__type">Poisson</p>
+          <p className="card__pokemon__type">{pokemon.type}</p>
         </div>
         <p className="about">About</p>
         <div className="card__pokemon__features__container">
@@ -71,7 +90,7 @@ const Card = () => {
                 src="_assets/icons/weight.png"
                 alt="weight"
               />
-              <p>6.9 kg</p>
+              <p>{pokemon.weight}</p>
             </div>
             <p className="card__feature__description__tag">Weight</p>
           </div>
@@ -82,36 +101,34 @@ const Card = () => {
                 src="_assets/icons/ruler.png"
                 alt="ruler"
               />
-              <p>0.7m</p>
+              <p>{pokemon.height}</p>
             </div>
             <p className="card__feature__description__tag">Height</p>
           </div>
         </div>
-        <p className="card__text__info">
-          There is a plant seed on its back right from the day this Pokémon is
-          born
-        </p>
+        <p className="card__text__info">{pokemon.info}</p>
       </section>
     </div>
-  );
+  ));
 };
 
- const Footer = () => {
+const Footer = () => {
   return (
     <footer>
-    <div className="footer_container">
-      <img
-            className="footer__github__img"
-            src="_assets/icons/github.png"
-            alt="github"
-          />
-            <img
-            className="footer__pokeapi__img"
-            src="_assets/icons/pokeapi.png"
-            alt="github"
-          />
-      </div>    </footer>
-  )
-}
+      <div className="footer_container">
+        <img
+          className="footer__github__img"
+          src="_assets/icons/github.png"
+          alt="github"
+        />
+        <img
+          className="footer__pokeapi__img"
+          src="_assets/icons/pokeapi.png"
+          alt="github"
+        />
+      </div>{" "}
+    </footer>
+  );
+};
 
 export default App;
