@@ -123,27 +123,35 @@ function App() {
  
     (async() => {
       const pokemonJSON = await api.pokemons();
-      const pokemonUrlSON = pokemonJSON.results.map((url) => (url.url))
-      // console.log(pokemonUrlSON);
+      const pokemonUrlJSON = pokemonJSON.results.map((url) => (url.url))
 
-      const pokemonDataJSON = await Promise.all(pokemonUrlSON.map(async(data) => {
+      const pokemonDataJSON = await Promise.all(pokemonUrlJSON.map(async(data) => {
         const res = await fetch(data)
         return res.json()
       }))
-      console.log(pokemonDataJSON)
+      console.log('Recibidos,',pokemonDataJSON)
+      const customPokemon = pokemonDataJSON.map(pokemon => {
+        return {
+        name:pokemon.name,
+        id:pokemon.id,
+        weight: pokemon.weight,
+        height:pokemon.height,
+        
+        types:["grass",'poison'], 
+        /*No se sacar el type*/
+        src:pokemon.sprites.front_default,
+        info:"De momento me lo invento" //De donde saco la info?
+        }
+      })
+      console.log('CustomPokemon,',customPokemon)
 
-      setPokemons(pokemonDataJSON);
+      setPokemons(customPokemon);
     })()
   },[])
-  /*
-  const newPokemons =pokemons.map((pokemon))=>
-    return{
-    name:pokemon.name,
-    id:pokemon.id,
-    weight: pokemon.weight,
-    height:pokemon.height
-    }
-}*/
+
+
+  console.log('Pokemon',pokemons) 
+
 
   return (
 
@@ -158,6 +166,7 @@ function App() {
       <Footer />
     </main>
   );
+
 }
 
 const Header = () => {
@@ -191,15 +200,16 @@ const Searchbar = () => {
 };
 
 const Card = ({ pokemon }) => {
+  console.log("A la card",pokemon.src);
 
-  const mainType = pokemon.type[0];
+  const mainType = pokemon.types[0];
   return (
     <div
       className={`card__container card__container--${mainType.toLowerCase()}`}
     >
       <section className="card__title">
         <p className="card__pokemon-name">{pokemon.name}</p>
-        <p className="card__pokemon-number">{pokemon.id}</p>
+        <p className="card__pokemon-number">{`#0${pokemon.id}`}</p>
       </section>
       <section className="card__info">
         <div className="card__img__container">
@@ -210,7 +220,7 @@ const Card = ({ pokemon }) => {
           />
         </div>
         <div className="card__pokemon__type__container">
-          {pokemon.type.map((type) => (
+          {pokemon.types.map((type) => (
             <Tag type={type} />
           ))}
         </div>
