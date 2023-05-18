@@ -1,124 +1,16 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import {api} from './api.js'
-/*const pokemons = [
-  {
-    name: "Bulbasaur",
-    id: "#001",
-    type: ["Grass", "Poison"],
-    weight: "6.9 kgs",
-    height: "0.7 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/bulbasaur.png",
-  },
-  {
-    name: "Charmander",
-    id: "#004",
-    type: ["Fire"],
-    weight: "5 kgs",
-    height: "1.2 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/charmander.png",
-  },
-  {
-    name: "Squirtle",
-    id: "#001",
-    type: ["Water"],
-    weight: "8.9 kgs",
-    height: "0.8 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/squirtle.png",
-  },
-  {
-    name: "Charmander",
-    id: "#004",
-    type: ["Fire"],
-    weight: "5 kgs",
-    height: "1.2 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/charmander.png",
-  },
-  {
-    name: "Bulbasaur",
-    id: "#001",
-    type: ["Grass", "Poison"],
-    weight: "6.9 kgs",
-    height: "0.7 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/bulbasaur.png",
-  },
-  {
-    name: "Charmander",
-    id: "#004",
-    type: ["Fire"],
-    weight: "5 kgs",
-    height: "1.2 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/charmander.png",
-  },
-  {
-    name: "Squirtle",
-    id: "#001",
-    type: ["Water"],
-    weight: "8.9 kgs",
-    height: "0.8 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/squirtle.png",
-  },
-  {
-    name: "Charmander",
-    id: "#004",
-    type: ["Fire"],
-    weight: "5 kgs",
-    height: "1.2 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/charmander.png",
-  },
-  {
-    name: "Bulbasaur",
-    id: "#001",
-    type: ["Grass", "Poison"],
-    weight: "6.9 kgs",
-    height: "0.7 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/bulbasaur.png",
-  },
-  {
-    name: "Charmander",
-    id: "#004",
-    type: ["Fire"],
-    weight: "5 kgs",
-    height: "1.2 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/charmander.png",
-  },
-  {
-    name: "Squirtle",
-    id: "#001",
-    type: ["Water"],
-    weight: "8.9 kgs",
-    height: "0.8 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/squirtle.png",
-  },
-  {
-    name: "Charmander",
-    id: "#004",
-    type: ["Fire"],
-    weight: "5 kgs",
-    height: "1.2 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/charmander.png",
-  },
-];*/
 
-   /*REcojo pokemons de las,Luego mapeo a nuestro formato y filtrado*/
 
 function App() {
 
   const  [pokemons, setPokemons] = useState([]);
+  const [description, setDescription] = useState([])
 
   
+ // const filteredFeatures = features.filter(features => features.descriptions.toLowerCase().includes(features.toLocaleLowerCase()))
+
   useEffect(()=>{
  
     (async() => {
@@ -140,7 +32,6 @@ function App() {
         types:pokemon.types, 
         /*No se sacar el type*/
         src:pokemon.sprites.front_default,
-        info:"De momento me lo invento" //De donde saco la info?
         }
       })
       console.log('CustomPokemon,',customPokemon)
@@ -149,8 +40,26 @@ function App() {
     })()
   },[])
 
+  
+  useEffect(()=>{
+ 
+    (async() => {
+      const descriptonJSON = await api.characteristics();
+      const pokemonFeaturesJSON = descriptonJSON.results.map((description) => (description.url))
 
-  console.log('Pokemon',pokemons) 
+      const pokemonDescriptionJSON = await Promise.all(pokemonFeaturesJSON.map(async(description) => {
+        const res = await fetch(description)
+        return res.json()
+      }))
+    
+
+      const pokemonDescriptionJSONSpanish = await pokemonDescriptionJSON.map((data) => (data.descriptions[5].description))
+      console.log('Spanish',pokemonDescriptionJSONSpanish)    
+      
+  
+       setDescription(pokemonDescriptionJSONSpanish);
+    })()
+  }, [])
 
 
   return (
@@ -199,9 +108,7 @@ const Searchbar = () => {
   );
 };
 
-const Card = ({ pokemon }) => {
-  console.log("A la card",pokemon.types);
-
+const Card = ({ pokemon,description}) => {
 
   const mainType = pokemon.types[0].type.name;
   return (
