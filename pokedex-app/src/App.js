@@ -1,118 +1,152 @@
+import { useEffect, useState } from "react";
 import "./App.css";
+import {api} from './api.js'
+/*const pokemons = [
+  {
+    name: "Bulbasaur",
+    id: "#001",
+    type: ["Grass", "Poison"],
+    weight: "6.9 kgs",
+    height: "0.7 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/bulbasaur.png",
+  },
+  {
+    name: "Charmander",
+    id: "#004",
+    type: ["Fire"],
+    weight: "5 kgs",
+    height: "1.2 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/charmander.png",
+  },
+  {
+    name: "Squirtle",
+    id: "#001",
+    type: ["Water"],
+    weight: "8.9 kgs",
+    height: "0.8 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/squirtle.png",
+  },
+  {
+    name: "Charmander",
+    id: "#004",
+    type: ["Fire"],
+    weight: "5 kgs",
+    height: "1.2 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/charmander.png",
+  },
+  {
+    name: "Bulbasaur",
+    id: "#001",
+    type: ["Grass", "Poison"],
+    weight: "6.9 kgs",
+    height: "0.7 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/bulbasaur.png",
+  },
+  {
+    name: "Charmander",
+    id: "#004",
+    type: ["Fire"],
+    weight: "5 kgs",
+    height: "1.2 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/charmander.png",
+  },
+  {
+    name: "Squirtle",
+    id: "#001",
+    type: ["Water"],
+    weight: "8.9 kgs",
+    height: "0.8 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/squirtle.png",
+  },
+  {
+    name: "Charmander",
+    id: "#004",
+    type: ["Fire"],
+    weight: "5 kgs",
+    height: "1.2 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/charmander.png",
+  },
+  {
+    name: "Bulbasaur",
+    id: "#001",
+    type: ["Grass", "Poison"],
+    weight: "6.9 kgs",
+    height: "0.7 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/bulbasaur.png",
+  },
+  {
+    name: "Charmander",
+    id: "#004",
+    type: ["Fire"],
+    weight: "5 kgs",
+    height: "1.2 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/charmander.png",
+  },
+  {
+    name: "Squirtle",
+    id: "#001",
+    type: ["Water"],
+    weight: "8.9 kgs",
+    height: "0.8 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/squirtle.png",
+  },
+  {
+    name: "Charmander",
+    id: "#004",
+    type: ["Fire"],
+    weight: "5 kgs",
+    height: "1.2 m",
+    info: "Esta es mi info",
+    src: "_assets/pokemons/charmander.png",
+  },
+];*/
 
-const pokemons = [
-  {
-    name: "Bulbasaur",
-    id: "#001",
-    type: ["Grass", "Poison"],
-    weight: "6.9 kgs",
-    height: "0.7 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/bulbasaur.png",
-  },
-  {
-    name: "Charmander",
-    id: "#004",
-    type: ["Fire"],
-    weight: "5 kgs",
-    height: "1.2 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/charmander.png",
-  },
-  {
-    name: "Squirtle",
-    id: "#001",
-    type: ["Water"],
-    weight: "8.9 kgs",
-    height: "0.8 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/squirtle.png",
-  },
-  {
-    name: "Charmander",
-    id: "#004",
-    type: ["Fire"],
-    weight: "5 kgs",
-    height: "1.2 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/charmander.png",
-  },
-  {
-    name: "Bulbasaur",
-    id: "#001",
-    type: ["Grass", "Poison"],
-    weight: "6.9 kgs",
-    height: "0.7 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/bulbasaur.png",
-  },
-  {
-    name: "Charmander",
-    id: "#004",
-    type: ["Fire"],
-    weight: "5 kgs",
-    height: "1.2 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/charmander.png",
-  },
-  {
-    name: "Squirtle",
-    id: "#001",
-    type: ["Water"],
-    weight: "8.9 kgs",
-    height: "0.8 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/squirtle.png",
-  },
-  {
-    name: "Charmander",
-    id: "#004",
-    type: ["Fire"],
-    weight: "5 kgs",
-    height: "1.2 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/charmander.png",
-  },
-  {
-    name: "Bulbasaur",
-    id: "#001",
-    type: ["Grass", "Poison"],
-    weight: "6.9 kgs",
-    height: "0.7 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/bulbasaur.png",
-  },
-  {
-    name: "Charmander",
-    id: "#004",
-    type: ["Fire"],
-    weight: "5 kgs",
-    height: "1.2 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/charmander.png",
-  },
-  {
-    name: "Squirtle",
-    id: "#001",
-    type: ["Water"],
-    weight: "8.9 kgs",
-    height: "0.8 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/squirtle.png",
-  },
-  {
-    name: "Charmander",
-    id: "#004",
-    type: ["Fire"],
-    weight: "5 kgs",
-    height: "1.2 m",
-    info: "Esta es mi info",
-    src: "_assets/pokemons/charmander.png",
-  },
-];
+   /*REcojo pokemons de las,Luego mapeo a nuestro formato y filtrado*/
 
 function App() {
+
+  const  [pokemons, setPokemons] = useState([]);
+
+  
+  useEffect(()=>{
+ 
+    (async() => {
+      const pokemonJSON = await api.pokemons();
+      const pokemonUrlSON = pokemonJSON.results.map((url) => (url.url))
+      // console.log(pokemonUrlSON);
+
+      const pokemonDataJSON = await Promise.all(pokemonUrlSON.map(async(data) => {
+        const res = await fetch(data)
+        return res.json()
+      }))
+      console.log(pokemonDataJSON)
+
+      setPokemons(pokemonDataJSON);
+    })()
+  },[])
+  /*
+  const newPokemons =pokemons.map((pokemon))=>
+    return{
+    name:pokemon.name,
+    id:pokemon.id,
+    weight: pokemon.weight,
+    height:pokemon.height
+    }
+}*/
+
   return (
+
     <main className="main_container">
       <Header />
       <Searchbar />
@@ -157,6 +191,7 @@ const Searchbar = () => {
 };
 
 const Card = ({ pokemon }) => {
+
   const mainType = pokemon.type[0];
   return (
     <div
