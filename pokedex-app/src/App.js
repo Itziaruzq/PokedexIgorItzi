@@ -137,7 +137,7 @@ function App() {
         weight: pokemon.weight,
         height:pokemon.height,
         
-        types:["grass",'poison'], 
+        types:pokemon.types, 
         /*No se sacar el type*/
         src:pokemon.sprites.front_default,
         info:"De momento me lo invento" //De donde saco la info?
@@ -200,9 +200,10 @@ const Searchbar = () => {
 };
 
 const Card = ({ pokemon }) => {
-  console.log("A la card",pokemon.src);
+  console.log("A la card",pokemon.types);
 
-  const mainType = pokemon.types[0];
+
+  const mainType = pokemon.types[0].type.name;
   return (
     <div
       className={`card__container card__container--${mainType.toLowerCase()}`}
@@ -221,7 +222,7 @@ const Card = ({ pokemon }) => {
         </div>
         <div className="card__pokemon__type__container">
           {pokemon.types.map((type) => (
-            <Tag type={type} />
+            <Tag type={type.type.name} />
           ))}
         </div>
         <p className={`about about--${mainType.toLowerCase()}`}>About</p>
@@ -233,7 +234,7 @@ const Card = ({ pokemon }) => {
                 src="_assets/icons/weight.png"
                 alt="weight"
               />
-              <p>{pokemon.weight}</p>
+              <p>{`${pokemon.weight} kg`}</p>
             </div>
             <p className="card__feature__description__tag">Weight</p>
           </div>
@@ -244,7 +245,7 @@ const Card = ({ pokemon }) => {
                 src="_assets/icons/ruler.png"
                 alt="ruler"
               />
-              <p>{pokemon.height}</p>
+              <p>{`${pokemon.height} m`}</p>
             </div>
             <p className="card__feature__description__tag">Height</p>
           </div>

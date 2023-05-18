@@ -181,6 +181,10 @@ body {
   font-size: var(--font-size-xl);
   color: var(--white);
 }
+.card__pokemon-name::first-letter {
+      text-transform: uppercase;
+
+}
 
 .card__pokemon-number {
   color: var(--white);
@@ -223,6 +227,10 @@ body {
   color: var(--white);
   padding: 0.125rem 0.6rem;
   font-size: var(--font-size-m);
+}
+.card__pokemon__type::first-letter {
+
+      text-transform: uppercase;
 }
 
 .card__pokemon__type--rock {
