@@ -82,9 +82,9 @@ body {
 }
 
 .searchbar_input {
-  /*Comprobar ancho*/
   border: none;
   margin-left: 1.5rem;
+  margin-right: 0.5rem;
 }
 .searchbar_input:focus {
   outline: none;
