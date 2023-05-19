@@ -174,7 +174,6 @@ body {
 
   font-weight: bold;
 
-  /*Revisar margin*/
 }
 
 .card__pokemon-name {
@@ -208,8 +207,7 @@ body {
 
 .card__img__container {
   position: absolute;
-  /* TODO modificar este top */
-  top: -100px;
+  top: -6rem;
   width: 9.375rem;
 }
 .card__pokemon__img {
