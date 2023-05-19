@@ -40,7 +40,7 @@ const getPokemons = async () => {
         height: pokemonData.height,
         types: pokemonData.types,
         description: pokemonDescriptionJSONSpanish[index],
-        src: pokemonData.sprites.front_default,
+        src: pokemonData.sprites.other.home.front_default,
       };
     })
   );
@@ -53,7 +53,7 @@ const getPokemons = async () => {
       height: pokemonData.height,
       types: pokemonData.types,
       description: pokemonDescriptionJSONSpanish[index],
-      src: pokemonData.sprites.front_default,
+      src: pokemonData.sprites.other.home.front_default,
     };
   });
   return mappedPokemons;

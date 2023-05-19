@@ -9,6 +9,7 @@ import { pokemonService } from "./services/pokemonService";
 function App() {
   const [pokemons, setPokemons] = useState([]);
 
+  // const filteredFeatures = features.filter(features => features.descriptions.toLowerCase().includes(features.toLocaleLowerCase()))
 
   const getPokemons = async () => {
     const mappedPokemons = await pokemonService.getPokemons();
@@ -20,17 +21,14 @@ function App() {
     getPokemons();
   }, []);
 
-
-  console.log(pokemons);
-
   return (
     <main className="main_container">
       <Header />
       <Searchbar />
       <div className="cards__grid">
-        { pokemons.map((pokemon) => (
+        {pokemons.map((pokemon) => (
           <Card pokemon={pokemon} />
-        ))} 
+        ))}
       </div>
       <Footer />
     </main>
