@@ -12,24 +12,24 @@ function App() {
 
   const getPokemons = async () => {
     const mappedPokemons = await pokemonService.getPokemons();
-
     setPokemons(mappedPokemons);
+    setFilteredPokemons(mappedPokemons);
   };
-
-  const mapPokemon = (pokemon) => <Card pokemon={pokemon} />;
-
-  const pokemonCards = pokemons.map(mapPokemon);
 
   useEffect(() => {
     getPokemons();
   }, []);
 
   const handleSearch = (inputValue) => {
-    const filteredPoke = pokemons.filter((pokemon) =>
+    const result = pokemons.filter((pokemon) =>
       pokemon.name.toLowerCase().includes(inputValue.toLocaleLowerCase())
     );
-    setPokemons(filteredPoke);
+    setFilteredPokemons(result);
   };
+
+  const mapPokemon = (pokemon) => <Card pokemon={pokemon} />;
+
+  const pokemonCards = filteredPokemons.map(mapPokemon);
 
   return (
     <main className="main_container">

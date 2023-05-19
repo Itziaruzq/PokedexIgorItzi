@@ -29,22 +29,6 @@ const getPokemons = async () => {
     (data) => data.descriptions[5].description
   );
 
-  /*Mapear pokemons*/
-
-  console.log(
-    pokemonsData.map((pokemonData, index) => {
-      return {
-        name: pokemonData.name,
-        id: pokemonData.id,
-        weight: pokemonData.weight,
-        height: pokemonData.height,
-        types: pokemonData.types,
-        description: pokemonDescriptionJSONSpanish[index],
-        src: pokemonData.sprites.other.home.front_default,
-      };
-    })
-  );
-
   const mappedPokemons = pokemonsData.map((pokemonData, index) => {
     return {
       name: pokemonData.name,
