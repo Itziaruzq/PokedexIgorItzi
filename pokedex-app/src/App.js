@@ -7,7 +7,6 @@ function App() {
 
   const  [pokemons, setPokemons] = useState([]);
   const [description, setDescription] = useState([])
-
   
  // const filteredFeatures = features.filter(features => features.descriptions.toLowerCase().includes(features.toLocaleLowerCase()))
 
@@ -20,23 +19,9 @@ function App() {
       const pokemonDataJSON = await Promise.all(pokemonUrlJSON.map(async(data) => {
         const res = await fetch(data)
         return res.json()
-      }))
-      console.log('Recibidos,',pokemonDataJSON)
-      const customPokemon = pokemonDataJSON.map(pokemon => {
-        return {
-        name:pokemon.name,
-        id:pokemon.id,
-        weight: pokemon.weight,
-        height:pokemon.height,
-        
-        types:pokemon.types, 
-        /*No se sacar el type*/
-        src:pokemon.sprites.front_default,
-        }
-      })
-      console.log('CustomPokemon,',customPokemon)
+      })) 
 
-      setPokemons(customPokemon);
+      setPokemons(pokemonDataJSON);
     })()
   },[])
 
@@ -52,14 +37,25 @@ function App() {
         return res.json()
       }))
     
-
       const pokemonDescriptionJSONSpanish = await pokemonDescriptionJSON.map((data) => (data.descriptions[5].description))
-      console.log('Spanish',pokemonDescriptionJSONSpanish)    
-      
-  
        setDescription(pokemonDescriptionJSONSpanish);
     })()
   }, [])
+
+
+  const customPokemon = pokemons.map((pokemon,index) => {
+    return {
+    name:pokemon.name,
+    id:pokemon.id,
+    weight: pokemon.weight,
+    height:pokemon.height,
+    
+    types:pokemon.types, 
+    info:description[index],
+    src:pokemon.sprites.front_default,
+    }
+  })
+  console.log('Custom',customPokemon)    
 
 
   return (
@@ -68,7 +64,7 @@ function App() {
       <Header />
       <Searchbar />
       <div className="cards__grid">
-        {pokemons.map((pokemon) => (
+        {customPokemon.map((pokemon) => (
           <Card pokemon={pokemon} />
         ))}
       </div>
