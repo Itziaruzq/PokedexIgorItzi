@@ -28,7 +28,6 @@ function App() {
   };
 
   const mapPokemon = (pokemon) => <Card pokemon={pokemon} />;
-
   const pokemonCards = filteredPokemons.map(mapPokemon);
 
   return (
