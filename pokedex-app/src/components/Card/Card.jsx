@@ -48,7 +48,7 @@ export const Card = ({ pokemon }) => {
             <p className="card__feature__description__tag">Height</p>
           </div>
         </div>
-        <p className="card__text__info">{pokemon.info}</p>
+        <p className="card__text__info">{pokemon.description}</p>
       </section>
     </div>
   );
