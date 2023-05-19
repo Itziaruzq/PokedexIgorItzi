@@ -8,8 +8,7 @@ import { pokemonService } from "./services/pokemonService";
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
-
-  // const filteredFeatures = features.filter(features => features.descriptions.toLowerCase().includes(features.toLocaleLowerCase()))
+  const [filteredPokemons, setFilteredPokemons] = useState([]);
 
   const getPokemons = async () => {
     const mappedPokemons = await pokemonService.getPokemons();
@@ -17,19 +16,26 @@ function App() {
     setPokemons(mappedPokemons);
   };
 
+  const mapPokemon = (pokemon) => <Card pokemon={pokemon} />;
+
+  const pokemonCards = pokemons.map(mapPokemon);
+
   useEffect(() => {
     getPokemons();
   }, []);
 
+  const handleSearch = (inputValue) => {
+    const filteredPoke = pokemons.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(inputValue.toLocaleLowerCase())
+    );
+    setPokemons(filteredPoke);
+  };
+
   return (
     <main className="main_container">
       <Header />
-      <Searchbar />
-      <div className="cards__grid">
-        {pokemons.map((pokemon) => (
-          <Card pokemon={pokemon} />
-        ))}
-      </div>
+      <Searchbar onEnter={handleSearch} />
+      <div className="cards__grid">{pokemonCards}</div>
       <Footer />
     </main>
   );
